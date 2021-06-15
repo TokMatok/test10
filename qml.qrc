@@ -250,5 +250,11 @@
         <file>Resources/oper.png</file>
         <file>Resources/Signal.png</file>
         <file>Resources/on.svg</file>
+        <file>Resources/line/arrow/up.svg</file>
+        <file>Resources/detail/line/flag.png</file>
+        <file>Resources/icon/24/lock/close.svg</file>
+        <file>Resources/2.svg</file>
+        <file>Resources/button_form_active.svg</file>
+        <file>Resources/close.svg</file>
     </qresource>
 </RCC>

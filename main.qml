@@ -10,11 +10,38 @@ Window {
     height: 640
     color: "#AAAAAA"
     flags: Qt.FramelessWindowHint
+
+    FontLoader{source: "Resources/Fonts/FiraSans-Regular.ttf"}
+    FontLoader{source: "Resources/Fonts/FiraSans-SemiBold.ttf"}
+    FontLoader{source: "Resources/Fonts/FiraSans-Medium.ttf"}
+    FontLoader{source: "Resources/Fonts/FiraSans-Light.ttf"}
+    FontLoader{source: "Resources/Fonts/OpenSans-Regular.ttf"}
+    FontLoader{source: "Resources/Fonts/OpenSans-Bold.ttf"}
+    FontLoader{source: "Resources/Fonts/OpenSans-Semibold.ttf"}
+
    // property string font: FontLoader.source
-    FontLoader {
-           id: font
-           source: "Resources/Fonts/FiraSans-Bold.ttf"
-       }
+    property font firaSansRegular10: Qt.font
+                                         ({
+                                              family: "Fira Sans",
+                                              weight: Font.Normal,
+                                              pixelSize: 10
+
+                                          });
+    property font firaSansRegular13: Qt.font
+                                         ({
+                                              family: "Fira Sans",
+                                              weight: Font.Normal,
+                                              pixelSize: 13
+
+                                          });
+    property font firaSansSemiBold13: Qt.font
+                                         ({
+                                              family: "Fira Sans",
+                                              weight: Font.Normal,
+                                              pixelSize: 16
+
+                                          });
+
     Label {
         id: label
         width: 328
@@ -36,7 +63,7 @@ Window {
 
         Text {
             id: ch
-            anchors.right: label.right;
+            anchors.right: label.righ
             anchors.top: label.top
             anchors.left: label.left
             anchors.bottom: label.bottom
@@ -48,11 +75,8 @@ Window {
              //y: 5
 
 
-            font.family: window.font.name
-
+            font : firaSansRegular10
             text: qsTr("CH 12")
-
-            font.pixelSize: 12
         }
         Text {
             id: ng
@@ -67,11 +91,11 @@ Window {
            // x: 44
            // y: 30
 
-            font.family: window.font.name
+            font : firaSansRegular13
 
             text: qsTr("2G")
 
-            font.pixelSize: 12
+
         }
 
         Text {
@@ -87,7 +111,8 @@ Window {
             //x: 130
             //y: 31
             text: qsTr("BSIC 6:2")
-            font.pixelSize: 12
+            font : firaSansRegular10
+
         }
 
         Text {
@@ -103,7 +128,7 @@ Window {
             //x: 184
             //y: 5
             text: qsTr("b3 1800")
-            font.pixelSize: 12
+            font : firaSansRegular10
         }
 
 
@@ -121,7 +146,7 @@ Window {
             //x: 182
             //y: 31
             text: qsTr("LAC 7838")
-            font.pixelSize: 12
+            font : firaSansRegular10
         }
         Text {
             id: cid
@@ -136,7 +161,7 @@ Window {
            // x: 130
            // y: 57
             text: qsTr("CID 10357")
-            font.pixelSize: 12
+            font : firaSansRegular10
         }
         Text {
             id: operator
@@ -151,8 +176,7 @@ Window {
             //x: 44
             //y: 4
             text: qsTr("Megafon")
-            font.family: window.font.name
-            font.pixelSize: 12
+
         }
         Text {
             id: operator2
@@ -167,8 +191,7 @@ Window {
             //x: 44
             //y: 56
             text: qsTr("Yota")
-            font.family: window.font.name
-            font.pixelSize: 12
+
         }
         Text {
             id: date
@@ -185,7 +208,7 @@ Window {
             width: 84
             height: 16
             text: qsTr("00/00/00 00:00:00")
-            font.pixelSize: 10
+            font : firaSansRegular10
         }
         Text {
             id: lng
@@ -202,8 +225,7 @@ Window {
             width: 14
             height: 16
             text: qsTr("Ru")
-            font.family: window.font.name
-            font.pixelSize: 13
+            font : firaSansRegular10
         }
         Image {
             id: labelOper
@@ -256,6 +278,18 @@ Window {
             //y: 89
             width: 14
             height: 6
+            background: Item{
+                anchors.fill: parent
+                width: 14
+                height: 6
+            }
+
+             contentItem: Image{
+             anchors.fill: parent
+             source: "qrc:/Resources/line/arrow/up.svg"
+             width: 14
+             height: 6
+             }
 
         }
         Button {
@@ -304,7 +338,7 @@ Window {
             //y: 80
             width: 72
             height: 24
-            property color backgroundColor: "#04BFAD"
+           property color backgroundColor: "#04BFAD"
             contentItem: Text {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -312,6 +346,13 @@ Window {
                 font: parent.font
                 color: "white"
             }
+            background: Rectangle {
+            id: sosedi_rectangle
+            color: sosedi.backgroundColor
+            width: sosedi.width
+            height: sosedi.height
+            radius : 2
+         }
         }
         Button{
             id: lock
@@ -323,13 +364,14 @@ Window {
             anchors.topMargin: 25
             anchors.rightMargin : 48
             anchors.bottomMargin: 63
-           background: Item{
+           background: Rectangle{
                width: 24
                height: 24
            }
 
             contentItem: Image{
-            source: "qrc:/Resources/on.svg"
+                anchors.fill: parent
+            source: "qrc:/Resources/close.svg"
             width: 24
             height: 24
             }
@@ -350,13 +392,19 @@ Window {
             //y: 25
             width: 18
             height: 24
+            property color backgroundColor: "#04BFAD"
+            background: Item{
+                anchors.fill: parent
+                width: 18
+                height: 24
+            }
 
-         background: Rectangle {
-            id: sosedi_rectangle
-            color: sosedi.backgroundColor
-            width: sosedi.width
-            radius : 2
-         }
+             contentItem: Image{
+                 anchors.fill: parent
+             source: "qrc:/Resources/on.svg"
+             width: 18
+             height: 24
+             }
         }
         Image {
             id: flag
@@ -372,8 +420,23 @@ Window {
             //y: 87
             width: 16
             height: 10
-            source: "Resources/operator-images/yota.png"
+            source: "Resources/detail/line/flag.png"
             fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id : signalPower
+            anchors.right: label.right;
+            anchors.top: label.top
+            anchors.left: label.left
+            anchors.bottom: label.bottom
+            anchors.leftMargin: 68
+            anchors.topMargin: 24
+            anchors.rightMargin : 212
+            anchors.bottomMargin: 64
+            width: 48
+            height: 24
+            source: "Resources/button_form_active.svg"
+            //fillMode: Image.PreserveAspectFit
         }
     }
 
