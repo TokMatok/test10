@@ -10,9 +10,10 @@ Window {
     height: 640
     color: "#AAAAAA"
     flags: Qt.FramelessWindowHint
+   // property string font: FontLoader.source
     FontLoader {
            id: font
-           source: "Resources/Fonts/FiraSans.ttf"
+           source: "Resources/Fonts/FiraSans-Bold.ttf"
        }
     Label {
         id: label
@@ -150,7 +151,7 @@ Window {
             //x: 44
             //y: 4
             text: qsTr("Megafon")
-            font.family: "Fira Sans Medium"
+            font.family: window.font.name
             font.pixelSize: 12
         }
         Text {
@@ -166,7 +167,7 @@ Window {
             //x: 44
             //y: 56
             text: qsTr("Yota")
-            font.family: "Fira Sans Medium"
+            font.family: window.font.name
             font.pixelSize: 12
         }
         Text {
@@ -201,7 +202,7 @@ Window {
             width: 14
             height: 16
             text: qsTr("Ru")
-            font.family: "Fira Sans SemiBold"
+            font.family: window.font.name
             font.pixelSize: 13
         }
         Image {
