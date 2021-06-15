@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 //import QtQuick.Layouts 1.3
 import QtQuick.Window 2.15
-import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.15
 
 Window {
     id: window
@@ -308,6 +308,7 @@ Window {
           //  y: 80
             width: 72
             height: 24
+
             property color backgroundColor: "#04BFAD"
             contentItem: Text {
                 horizontalAlignment: Text.AlignHCenter
@@ -322,8 +323,29 @@ Window {
             color: sib.backgroundColor
             width: sib.width
             radius : 2
+
+         }
+         DropShadow {
+                      anchors.fill: sib
+                      horizontalOffset: 1
+                      verticalOffset: 1
+                      radius: 2.0
+                      //samples: 17
+                      color: Qt.rgba(0, 0, 0, 0.15)//"#28000000"
+                      source: sib_rectangle
+         }
+         DropShadow {
+                      anchors.fill: sib
+                      horizontalOffset: 0
+                      verticalOffset: -1
+                      radius: 2.0
+                      //samples: 17
+                      color: "#08000000"
+                      source: sib_rectangle
          }
         }
+
+
         Button {
             id: sosedi
             visible: true
@@ -339,6 +361,8 @@ Window {
             //y: 80
             width: 72
             height: 24
+
+
            property color backgroundColor: "#04BFAD"
             contentItem: Text {
                 horizontalAlignment: Text.AlignHCenter
@@ -349,11 +373,32 @@ Window {
             }
             background: Rectangle {
             id: sosedi_rectangle
+
             color: sosedi.backgroundColor
             width: sosedi.width
             height: sosedi.height
+
             radius : 2
          }
+            DropShadow {
+                         anchors.fill: sosedi
+                         horizontalOffset: 1
+                         verticalOffset: 1
+                         radius: 2.0
+                         //samples: 17
+                         color: "#28000000"
+                         source: sosedi_rectangle
+            }
+            DropShadow {
+                         anchors.fill: sosedi
+                         horizontalOffset: 0
+                         verticalOffset: -1
+                         radius: 2.0
+                         //samples: 17
+                         color: "#08000000"
+                         source: sosedi_rectangle
+            }
+
         }
         Button{
             id: lock
@@ -438,7 +483,27 @@ Window {
             width: 48
             height: 24
             source: "Resources/button_form_active.svg"
-            //fillMode: Image.PreserveAspectFit
+            fillMode: Image.PreserveAspectFit
+
+            DropShadow {
+                         anchors.fill: signalPower
+                         horizontalOffset: 1
+                         verticalOffset: 1
+                         radius: 2.0
+                         //samples: 17
+                         color: "#28000000"
+                         source: signalPower
+            }
+            DropShadow {
+                         anchors.fill: signalPower
+                         horizontalOffset: 0
+                         verticalOffset: -1
+                         radius: 2.0
+                         //samples: 17
+                         color: "#08000000"
+                         source: signalPower
+            }
+
         }
     }
 
