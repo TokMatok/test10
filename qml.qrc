@@ -257,6 +257,6 @@
         <file>Resources/button_form_active.svg</file>
         <file>Resources/close.svg</file>
         <file>Resources/close.png</file>
-        <file>mainLabel.qml</file>
+        <file>MainLabel.qml</file>
     </qresource>
 </RCC>
