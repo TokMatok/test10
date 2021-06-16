@@ -258,5 +258,7 @@
         <file>Resources/close.svg</file>
         <file>Resources/close.png</file>
         <file>MainLabel.qml</file>
+        <file>Resources/waves_3.svg</file>
+        <file>Resources/bird.jpg</file>
     </qresource>
 </RCC>

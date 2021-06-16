@@ -9,7 +9,7 @@ Window {
     visible: true
     width: 360
     height: 640
-    color: "#AAAAAA"
+    color: "#FFFFFF"
     flags: Qt.FramelessWindowHint
 
     FontLoader{source: "Resources/Fonts/FiraSans-Regular.ttf"}
@@ -59,6 +59,7 @@ Window {
      width: 360; height: 640;
      model: 20
      spacing: 1
+    // ColorSpace : "#white"
   delegate:                 Component
       {
 
