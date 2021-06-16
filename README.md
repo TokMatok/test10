@@ -14,7 +14,7 @@ at the moment the main work on my part is on qml design (main.qml and another)
 
 [Qt creator](https://www.qt.io/download)
 
-[qt documentation](doc.qt.io)
+[qt documentation](https://doc.qt.io)
 
 [good qml book](http://qmlbook.github.io/)
 
