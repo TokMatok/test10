@@ -18,4 +18,4 @@ at the moment the main work on my part is on qml design (main.qml and another)
 
 [good qml book](http://qmlbook.github.io/)
 
-![](https://github.com/TokMatok/test10/blob/282f528542f9156a8826ec82946e67b449ea1874/Resources/waves_3.svg)
+
