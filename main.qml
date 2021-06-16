@@ -28,6 +28,13 @@ Window {
                                               pixelSize: 10
 
                                           });
+    property font firaSansMedium13: Qt.font
+                                         ({
+                                              family: "Fira Sans",
+                                              weight: Font.Normal,
+                                              pixelSize: 13
+
+                                          });
     property font firaSansRegular13: Qt.font
                                          ({
                                               family: "Fira Sans",
@@ -61,14 +68,32 @@ Window {
 
 
         }
-
         Text {
-            id: ch
+            id: chname
             anchors.right: label.righ
             anchors.top: label.top
             anchors.left: label.left
             anchors.bottom: label.bottom
             anchors.leftMargin: 130
+            anchors.topMargin: 5
+            anchors.rightMargin : 185
+            anchors.bottomMargin: 91
+             // x: 130
+             //y: 5
+
+
+            font : firaSansRegular10
+            opacity: 0.7
+            color: "#024873"
+            text: qsTr("CH")
+        }
+        Text {
+            id: chnumber
+            anchors.right: label.righ
+            anchors.top: label.top
+            anchors.left: label.left
+            anchors.bottom: label.bottom
+            anchors.leftMargin: 145
             anchors.topMargin: 4
             anchors.rightMargin : 146
             anchors.bottomMargin: 91
@@ -76,8 +101,10 @@ Window {
              //y: 5
 
 
-            font : firaSansRegular10
-            text: qsTr("CH 12")
+            font : firaSansRegular13
+            text: qsTr("12")
+            color: "#024873"
+
         }
         Text {
             id: ng
@@ -95,10 +122,10 @@ Window {
             font : firaSansRegular13
 
             text: qsTr("2G")
+            color: "#024873"
 
 
         }
-
         Text {
             id: bsic
             anchors.right: label.right;
@@ -106,16 +133,32 @@ Window {
             anchors.left: label.left
             anchors.bottom: label.bottom
             anchors.leftMargin: 130
-            anchors.topMargin: 30
-            anchors.rightMargin : 154
+            anchors.topMargin: 31
+            anchors.rightMargin : 178
             anchors.bottomMargin: 65
             //x: 130
             //y: 31
-            text: qsTr("BSIC 6:2")
+            text: qsTr("BSIC")
             font : firaSansRegular10
+            opacity: 0.7
 
         }
-
+        Text {
+            id: bsicnumber
+            anchors.right: label.right;
+            anchors.top: label.top
+            anchors.left: label.left
+            anchors.bottom: label.bottom
+            anchors.leftMargin: 152
+            anchors.topMargin: 30
+            anchors.rightMargin : 154
+            anchors.bottomMargin: 66
+            //x: 130
+            //y: 31
+            text: qsTr("6:2")
+            font : firaSansRegular10
+            color: "#024873"
+        }
         Text {
             id: b3
             anchors.right: label.right;
@@ -123,16 +166,33 @@ Window {
             anchors.left: label.left
             anchors.bottom: label.bottom
             anchors.leftMargin: 184
-            anchors.topMargin: 4
-            anchors.rightMargin : 94
+            anchors.topMargin: 5
+            anchors.rightMargin : 126
             anchors.bottomMargin: 91
             //x: 184
             //y: 5
-            text: qsTr("b3 1800")
+            text: qsTr("b3")
             font : firaSansRegular10
+            color: "#024873"
+            opacity: 0.7
         }
 
-
+        Text {
+            id: b3number
+            anchors.right: label.right;
+            anchors.top: label.top
+            anchors.left: label.left
+            anchors.bottom: label.bottom
+            anchors.leftMargin: 204
+            anchors.topMargin: 4
+            anchors.rightMargin : 94
+            anchors.bottomMargin: 92
+            //x: 184
+            //y: 5
+            color: "#024873"
+            text: qsTr("1800")
+            font : firaSansRegular10
+        }
 
         Text {
             id: lac
@@ -141,13 +201,32 @@ Window {
             anchors.left: label.left
             anchors.bottom: label.bottom
             anchors.leftMargin: 182
+            anchors.topMargin:31
+            anchors.rightMargin : 129
+            anchors.bottomMargin: 65
+            //x: 182
+            //y: 31
+            text: qsTr("LAC")
+            font : firaSansRegular10
+            color: "#024873"
+            opacity: 0.7
+        }
+
+        Text {
+            id: lacnumber
+            anchors.right: label.right;
+            anchors.top: label.top
+            anchors.left: label.left
+            anchors.bottom: label.bottom
+            anchors.leftMargin: 201
             anchors.topMargin:30
             anchors.rightMargin : 90
             anchors.bottomMargin: 65
             //x: 182
             //y: 31
-            text: qsTr("LAC 7838")
+            text: qsTr("7838")
             font : firaSansRegular10
+            color: "#024873"
         }
         Text {
             id: cid
@@ -156,13 +235,30 @@ Window {
             anchors.left: label.left
             anchors.bottom: label.bottom
             anchors.leftMargin: 130
-            anchors.topMargin: 56
-            anchors.rightMargin : 90
+            anchors.topMargin: 57
+            anchors.rightMargin : 182
             anchors.bottomMargin: 39
            // x: 130
            // y: 57
-            text: qsTr("CID 10357")
+            text: qsTr("CID")
             font : firaSansRegular10
+            color: "#024873"
+            opacity: 0.7
+        }
+        Text {
+            id: cidnumber
+            anchors.right: label.right;
+            anchors.top: label.top
+            anchors.left: label.left
+            anchors.bottom: label.bottom
+            anchors.leftMargin: 148
+            anchors.topMargin: 56
+
+           // x: 130
+           // y: 57
+            text: qsTr("10357")
+            font : firaSansRegular10
+            color: "#024873"
         }
         Text {
             id: operator
@@ -192,6 +288,8 @@ Window {
             //x: 44
             //y: 56
             text: qsTr("Yota")
+            color: "#024873"
+            font: firaSansMedium13
 
         }
         Text {
@@ -210,6 +308,7 @@ Window {
             height: 16
             text: qsTr("00/00/00 00:00:00")
             font : firaSansRegular10
+            color: "#024873"
         }
         Text {
             id: lng
@@ -227,6 +326,7 @@ Window {
             height: 16
             text: qsTr("Ru")
             font : firaSansRegular10
+            color: "#024873"
         }
         Image {
             id: labelOper
@@ -493,6 +593,9 @@ Window {
                          //samples: 17
                          color: "#28000000"
                          source: signalPower
+
+
+
             }
             DropShadow {
                          anchors.fill: signalPower
