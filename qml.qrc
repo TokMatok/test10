@@ -265,5 +265,6 @@
         <file>Resources/search.png</file>
         <file>Resources/sort_1.png</file>
         <file>Resources/off.png</file>
+        <file>Resources/zamok1.png</file>
     </qresource>
 </RCC>
