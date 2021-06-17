@@ -29,17 +29,16 @@ Window {
                 BusyIndicator.visible = false
 
             }
-            BusyIndicator {
-                x: 0
-                y: 0
-                width: 10
-                height: 10
-                visible: false
-                running: image.status === Image.Loading
-            }
-}
+    }
+
     BusyIndicator {
-        running: image.status === Image.Loading
+        x:0
+        y:0
+        height: 20
+        width: 20
+        id: busyIndicator
+        running: true
+        visible: true
     }
 
 Label {
@@ -116,7 +115,7 @@ Label {
          fillMode: Image.PreserveAspectFit
     }
     Button {
-        id: dots //кнопка свертывания
+        id: moreSettings //
         anchors.right: headColibri.right;
         anchors.top: headColibri.top
         anchors.left: headColibri.left
@@ -141,7 +140,9 @@ Label {
          width: 24
          height: 24
          }
-
+        onClicked: {
+            forms.visible = true
+        }
     }
 
 
@@ -182,6 +183,8 @@ Label {
 
             onClicked: {
                 buttonTimer.running = true
+                busyIndicator.visible = true
+                busyIndicator.running = true
 
             }
            // x: 218
@@ -224,6 +227,7 @@ Label {
                 id: forms_rectangle
                 color: forms.backgroundColor
                 width: forms.width
+
             }
            Text
            {
@@ -243,6 +247,116 @@ Label {
                text:"Список БС"
                //font : firaSansRegular10
                color: "#B0D1D8"
+           }
+           Text
+           {
+               id: diaposons
+               anchors.right: forms.right;
+               anchors.top: forms.top
+               anchors.left: forms.left
+               anchors.bottom: forms.bottom
+               anchors.leftMargin: 48
+               anchors.topMargin: 82
+               anchors.rightMargin : 16
+               anchors.bottomMargin: 108
+               //x: 64
+               //y: 84
+               width: 104
+               height: 18
+               text:"Диапазоны"
+               //font : firaSansRegular10
+               color: "#B0D1D8"
+           }
+           Text
+           {
+               id: history
+               anchors.right: forms.right;
+               anchors.top: forms.top
+               anchors.left: forms.left
+               anchors.bottom: forms.bottom
+               anchors.leftMargin: 48
+               anchors.topMargin: 122
+               anchors.rightMargin : 68
+               anchors.bottomMargin: 148
+               //x: 64
+               //y: 84
+               width: 104
+               height: 18
+               text:"История"
+               //font : firaSansRegular10
+               color: "#B0D1D8"
+           }
+           Text
+           {
+               id: settings
+               anchors.right: forms.right;
+               anchors.top: forms.top
+               anchors.left: forms.left
+               anchors.bottom: forms.bottom
+               anchors.leftMargin: 48
+               anchors.topMargin: 162
+               anchors.rightMargin : 16
+               anchors.bottomMargin: 28
+               //x: 64
+               //y: 84
+               width: 104
+               height: 18
+               text:"Настройки"
+               //font : firaSansRegular10
+               color: "#B0D1D8"
+           }
+
+           Button {
+               id: closeSettings //
+               anchors.right: forms.right;
+               anchors.top: forms.top
+               anchors.left: forms.left
+               anchors.bottom: forms.bottom
+               anchors.leftMargin: 136
+               anchors.topMargin: 8
+               anchors.rightMargin : 8
+               anchors.bottomMargin: 176
+               //x: 309
+               //y: 89
+               width: 24
+               height: 24
+               background: Item{
+                   anchors.fill: parent
+                   width: 24
+                   height: 24
+               }
+
+                contentItem: Image{
+                anchors.fill: parent
+                source: "qrc:/Resources/off.png"
+                width: 24
+                height: 24
+                }
+               onClicked: {
+                   forms.visible = false
+               }
+           }
+
+           DropShadow {
+                        anchors.fill: forms
+                        horizontalOffset: 0
+                        verticalOffset: 1
+                        radius: 2.0
+                        //samples: 17
+                        color: "#28000000"
+                        source: forms
+
+
+
+           }
+           DropShadow {
+                        anchors.fill: forms
+                        horizontalOffset: 0
+                        verticalOffset: 2
+                        radius: 2.0
+                        //samples: 17
+                        color: "#08000000"
+                        source: forms
            }
         }
 
