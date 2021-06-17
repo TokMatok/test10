@@ -7,6 +7,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        class1.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -52,6 +53,7 @@ DISTFILES += \
     Resources/Fonts/OpenSans-Semibold.ttf \
     Resources/Fonts/OpenSans-SemiboldItalic.ttf \
     Resources/Signal.png \
+    Resources/off.png \
     Resources/oper.png \
     Resources/operator-images/PLMN_CODES.txt \
     Resources/operator-images/a1.jpg \
@@ -271,3 +273,6 @@ DISTFILES += \
     Resources/operator-images/yota.png \
     Resources/operator-images/zain.jpg \
     Resources/operator-images/zong.jpg
+
+HEADERS += \
+    class1.h

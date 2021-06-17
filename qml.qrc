@@ -260,5 +260,10 @@
         <file>MainLabel.qml</file>
         <file>Resources/waves_3.svg</file>
         <file>Resources/bird.jpg</file>
+        <file>Resources/search.svg</file>
+        <file>Resources/waves_3.png</file>
+        <file>Resources/search.png</file>
+        <file>Resources/sort_1.png</file>
+        <file>Resources/off.png</file>
     </qresource>
 </RCC>

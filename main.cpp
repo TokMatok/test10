@@ -1,6 +1,8 @@
 #include <QGuiApplication>
+#include <QQmlContext>
 #include <QQmlApplicationEngine>
 
+#include "class1.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +13,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    class1 my_model;
+    engine.rootContext()->setContextProperty(QStringLiteral("my_model"), &my_model);
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

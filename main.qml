@@ -20,44 +20,244 @@ Window {
     FontLoader{source: "Resources/Fonts/OpenSans-Bold.ttf"}
     FontLoader{source: "Resources/Fonts/OpenSans-Semibold.ttf"}
 
-   // property string font: FontLoader.source
-//    property font firaSansRegular10: Qt.font
-//                                         ({
-//                                              family: "Fira Sans",
-//                                              weight: Font.Normal,
-//                                              pixelSize: 10
+    Timer {
+            id: buttonTimer
+            interval: 2000
+            onTriggered: {
 
-//                                          });
-//    property font firaSansMedium13: Qt.font
-//                                         ({
-//                                              family: "Fira Sans",
-//                                              weight: Font.Normal,
-//                                              pixelSize: 13
+                mainList.visible = true
+                BusyIndicator.visible = false
 
-//                                          });
-//    property font firaSansRegular13: Qt.font
-//                                         ({
-//                                              family: "Fira Sans",
-//                                              weight: Font.Normal,
-//                                              pixelSize: 13
+            }
+            BusyIndicator {
+                x: 0
+                y: 0
+                width: 10
+                height: 10
+                visible: false
+                running: image.status === Image.Loading
+            }
+}
+    BusyIndicator {
+        running: image.status === Image.Loading
+    }
 
-//                                          });
-//    property font firaSansSemiBold13: Qt.font
-//                                         ({
-//                                              family: "Fira Sans",
-//                                              weight: Font.Normal,
-//                                              pixelSize: 16
+Label {
+    id: headColibri
+    x:0
+    y:0
+    width :360
+    height: 56
 
-//                                          });
+
+    visible: true
+
+    property color backgroundColor: "#0889A6"
+    text: qsTr("")
+
+
+    background: Rectangle { //основной фон
+        id: headColibri_rectangle
+        color: headColibri.backgroundColor
+        width: headColibri.width
+}
+    Image {
+        id: colibriLogo
+        anchors.right: headColibri.right;
+        anchors.top: headColibri.top
+        anchors.left: headColibri.left
+        anchors.bottom: headColibri.bottom
+        anchors.leftMargin: 15;
+        anchors.topMargin: 15;
+        anchors.rightMargin : 319
+        anchors.bottomMargin: 15
+        //anchors{left: parent.left; leftMargin: 4;}
+        //x: 4
+        //y: 8
+       width: 26
+        height: 26
+        source: "Resources/waves_3.png"
+         fillMode: Image.PreserveAspectFit
+    }
+    Image {
+        id: search
+        anchors.right: headColibri.right;
+        anchors.top: headColibri.top
+        anchors.left: headColibri.left
+        anchors.bottom: headColibri.bottom
+        anchors.leftMargin: 224;
+        anchors.rightMargin : 111
+        anchors.topMargin: 16;
+        anchors.bottomMargin: 15
+        //anchors{left: parent.left; leftMargin: 4;}
+        //x: 4
+        //y: 8
+       width: 24
+        height: 24
+        source: "Resources/search.png"
+         fillMode: Image.PreserveAspectFit
+    }
+    Image {
+        id: sortImage
+        anchors.right: headColibri.right;
+        anchors.top: headColibri.top
+        anchors.left: headColibri.left
+        anchors.bottom: headColibri.bottom
+        anchors.leftMargin: 272;
+        anchors.rightMargin : 64
+        anchors.topMargin: 16;
+        anchors.bottomMargin: 16
+        //anchors{left: parent.left; leftMargin: 4;}
+        //x: 4
+        //y: 8
+       width: 24
+        height: 24
+        source: "Resources/sort_1.png"
+         fillMode: Image.PreserveAspectFit
+    }
+    Button {
+        id: dots //кнопка свертывания
+        anchors.right: headColibri.right;
+        anchors.top: headColibri.top
+        anchors.left: headColibri.left
+        anchors.bottom: headColibri.bottom
+        anchors.leftMargin: 320
+        anchors.topMargin: 16
+        anchors.rightMargin : 16
+        anchors.bottomMargin: 16
+        //x: 309
+        //y: 89
+        width: 24
+        height: 24
+        background: Item{
+            anchors.fill: parent
+            width: 24
+            height: 24
+        }
+
+         contentItem: Image{
+         anchors.fill: parent
+         source: "qrc:/Resources/off.png"
+         width: 24
+         height: 24
+         }
+
+    }
+
+
+}
+
+
+
+Label {
+    id: skanLabel
+    x:0
+    y:56
+    width :360
+    height: 56
+
+
+    visible: true
+
+    property color backgroundColor: "#0889A6"
+    text: qsTr("")
+
+
+    background: Rectangle { //основной фон
+        id: skanLabel_rectangle
+        color: skanLabel.backgroundColor
+        width: skanLabel.width
+}
+        Button {
+            id: skanButton
+            visible: true
+            anchors.right: skanLabel.right;
+            anchors.top: skanLabel.top
+            anchors.left: skanLabel.left
+            anchors.bottom: skanLabel.bottom
+            anchors.leftMargin: 216
+           // anchors.topMargin: 15
+            anchors.rightMargin : 64
+            anchors.bottomMargin: 15
+
+            onClicked: {
+                buttonTimer.running = true
+
+            }
+           // x: 218
+          //  y: 80
+            width: 80
+            height: 40
+
+            property color backgroundColor: "#04BFAD"
+            contentItem: Text {
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                text: "Скан"
+                //font: parent.font
+                color: "white"
+            }
+
+         background: Rectangle {
+            id: skanButton_rectangle
+            color: skanButton.backgroundColor
+            width: skanButton.width
+            radius : 2
+
+         }
+
+        }
+
+
+ }
+
+Label {
+            id: forms
+            visible: false
+            x:184
+            y:4
+            width: 168; height: 208
+            property color backgroundColor: "#FFFFFF"
+            text: qsTr("")
+
+            background: Rectangle { //основной фон
+                id: forms_rectangle
+                color: forms.backgroundColor
+                width: forms.width
+            }
+           Text
+           {
+               id: listBs
+               anchors.right: forms.right;
+               anchors.top: forms.top
+               anchors.left: forms.left
+               anchors.bottom: forms.bottom
+               anchors.leftMargin: 48
+               anchors.topMargin: 42
+               anchors.rightMargin : 16
+               anchors.bottomMargin: 148
+               //x: 64
+               //y: 84
+               width: 104
+               height: 18
+               text:"Список БС"
+               //font : firaSansRegular10
+               color: "#B0D1D8"
+           }
+        }
+
 
 
   ListView
  {
-
-      y:0
+     id: mainList
+     visible: false
+    model: my_model
+        clip: true
+      y:134
       x: 16
      width: 360; height: 640;
-     model: 20
+
      spacing: 1
     // ColorSpace : "#white"
   delegate:                 Component
@@ -70,5 +270,5 @@ Window {
       }
 
   }
-}
 
+}

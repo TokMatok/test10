@@ -3,9 +3,9 @@
 <rect x="1" y="3" width="18.6154" height="22" fill="url(#pattern0)"/>
 </mask>
 <g mask="url(#mask0)">
-<rect x="-1.53845" y="2.15385" width="23.6923" height="23.6923" fill="white"/>
+<rect x="-1.53845" y="2.15384" width="23.6923" height="23.6923" fill="white"/>
 </g>
-<path d="M19.5 5.40134C20.3967 5.92006 21 6.88957 21 8C21 9.11042 20.3967 10.0799 19.5 10.5987" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.5 5.40134C20.3967 5.92005 21 6.88957 21 7.99999C21 9.11041 20.3967 10.0799 19.5 10.5986" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M20 3.41605C21.7659 4.1876 23 5.94968 23 8C23 10.0503 21.7659 11.8124 20 12.584" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M20.5 1.45963C23.1314 2.46605 25 5.0148 25 8C25 10.9852 23.1314 13.5339 20.5 14.5404" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 <defs>
