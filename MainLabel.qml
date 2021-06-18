@@ -1,24 +1,22 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-//import QtQuick.Layouts 1.3
-import QtQuick.Window 2.15
 import QtGraphicalEffects 1.15
 
-Window {
-    id: window
+Rectangle { //основной кусок списка
+    id: mainLabel
     visible: true
     width: 360
-    height: 640
+    height: 112
     color: "#AAAAAA"
-    flags: Qt.FramelessWindowHint
+    //flags: Qt.FramelessWindowHint
 
     FontLoader{source: "Resources/Fonts/FiraSans-Regular.ttf"}
     FontLoader{source: "Resources/Fonts/FiraSans-SemiBold.ttf"}
     FontLoader{source: "Resources/Fonts/FiraSans-Medium.ttf"}
-    FontLoader{source: "Resources/Fonts/FiraSans-Light.ttf"}
-    FontLoader{source: "Resources/Fonts/OpenSans-Regular.ttf"}
-    FontLoader{source: "Resources/Fonts/OpenSans-Bold.ttf"}
-    FontLoader{source: "Resources/Fonts/OpenSans-Semibold.ttf"}
+    FontLoader{source: "Resources/Fonts/FiraSans-Light.ttf"} //этот шрифт еще не используется
+    FontLoader{source: "Resources/Fonts/OpenSans-Regular.ttf"}  //этот шрифт еще не используется
+    FontLoader{source: "Resources/Fonts/OpenSans-Bold.ttf"} //этот шрифт еще не используется
+    FontLoader{source: "Resources/Fonts/OpenSans-Semibold.ttf"} //этот шрифт еще не используется
 
    // property string font: FontLoader.source
     property font firaSansRegular10: Qt.font
@@ -35,14 +33,14 @@ Window {
                                               pixelSize: 13
 
                                           });
-    property font firaSansRegular13: Qt.font
+    property font firaSansRegular13: Qt.font //не используется (наверное)
                                          ({
                                               family: "Fira Sans",
                                               weight: Font.Normal,
                                               pixelSize: 13
 
                                           });
-    property font firaSansSemiBold13: Qt.font
+    property font firaSansSemiBold13: Qt.font //не используется
                                          ({
                                               family: "Fira Sans",
                                               weight: Font.Normal,
@@ -52,15 +50,14 @@ Window {
 
     Label {
         id: label
-        width: 328
-        height: 112
+        anchors.fill: parent
         visible: true
 
         property color backgroundColor: "#FFFFFF"
         text: qsTr("")
 
 
-        background: Rectangle {
+        background: Rectangle { //основной фон
             id: label_rectangle
             color: label.backgroundColor
             width: label.width
@@ -68,9 +65,9 @@ Window {
 
 
         }
-        Text {
+        Text { // статичное поле
             id: chname
-            anchors.right: label.righ
+            anchors.right: label.right
             anchors.top: label.top
             anchors.left: label.left
             anchors.bottom: label.bottom
@@ -88,7 +85,7 @@ Window {
             text: qsTr("CH")
         }
         Text {
-            id: chnumber
+            id: chnumber //динамичесоке поле
             anchors.right: label.righ
             anchors.top: label.top
             anchors.left: label.left
@@ -102,12 +99,12 @@ Window {
 
 
             font : firaSansRegular13
-            text: qsTr("12")
+            text: ch
             color: "#024873"
 
         }
         Text {
-            id: ng
+            id: ng //динамичное поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -121,13 +118,13 @@ Window {
 
             font : firaSansRegular13
 
-            text: qsTr("2G")
+            text: signg
             color: "#024873"
 
 
         }
         Text {
-            id: bsic
+            id: bsicst //статичное поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -144,7 +141,7 @@ Window {
 
         }
         Text {
-            id: bsicnumber
+            id: bsicnumber //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -155,12 +152,12 @@ Window {
             anchors.bottomMargin: 66
             //x: 130
             //y: 31
-            text: qsTr("6:2")
+            text: bsicrand
             font : firaSansRegular10
             color: "#024873"
         }
         Text {
-            id: b3
+            id: b3st //статичное
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -178,7 +175,7 @@ Window {
         }
 
         Text {
-            id: b3number
+            id: b3number//динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -188,14 +185,14 @@ Window {
             anchors.rightMargin : 94
             anchors.bottomMargin: 92
             //x: 184
-            //y: 5
+             //y: 5
             color: "#024873"
-            text: qsTr("1800")
+            text: b3rand
             font : firaSansRegular10
         }
 
         Text {
-            id: lac
+            id: lac //статичное
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -213,7 +210,7 @@ Window {
         }
 
         Text {
-            id: lacnumber
+            id: lacnumber //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -224,12 +221,12 @@ Window {
             anchors.bottomMargin: 65
             //x: 182
             //y: 31
-            text: qsTr("7838")
+            text: lacrand
             font : firaSansRegular10
             color: "#024873"
         }
         Text {
-            id: cid
+            id: cid //статичное
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -246,7 +243,7 @@ Window {
             opacity: 0.7
         }
         Text {
-            id: cidnumber
+            id: cidnumber //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -256,10 +253,13 @@ Window {
 
            // x: 130
            // y: 57
-            text: qsTr("10357")
+            //
+            text: cidrand
             font : firaSansRegular10
             color: "#024873"
         }
+
+
         Text {
             id: operator
             anchors.right: label.right;
@@ -273,6 +273,8 @@ Window {
             //x: 44
             //y: 4
             text: qsTr("Megafon")
+            //font : firaSansRegular13 для сравнения цветов
+            color: "#024873"
 
         }
         Text {
@@ -287,13 +289,14 @@ Window {
             anchors.bottomMargin: 40
             //x: 44
             //y: 56
-            text: qsTr("Yota")
+            text: operator2rand
             color: "#024873"
             font: firaSansMedium13
 
         }
         Text {
-            id: date
+
+            id: date //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -306,12 +309,12 @@ Window {
             //y: 5
             width: 84
             height: 16
-            text: qsTr("00/00/00 00:00:00")
+            text: timeNow
             font : firaSansRegular10
             color: "#024873"
         }
         Text {
-            id: lng
+            id: lng //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -324,12 +327,12 @@ Window {
             //y: 84
             width: 14
             height: 16
-            text: qsTr("Ru")
+            text: language
             font : firaSansRegular10
             color: "#024873"
         }
         Image {
-            id: labelOper
+            id: labelOper //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -347,7 +350,7 @@ Window {
             fillMode: Image.PreserveAspectFit
         }
         Image {
-            id: labelOper2
+            id: labelOper2 //динамичесоке поле
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
@@ -525,7 +528,7 @@ Window {
         }
 
         Button {
-            id: geo
+            id: geo //подогнать пропорции под макет
             visible: true
             anchors.right: label.right;
             anchors.top: label.top
@@ -554,7 +557,7 @@ Window {
              }
         }
         Image {
-            id: flag
+            id: flag //сурс картинки нужно подтягивать
             anchors.right: label.right;
             anchors.top: label.top
             anchors.left: label.left
