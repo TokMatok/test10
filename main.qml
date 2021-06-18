@@ -22,11 +22,11 @@ Window {
 
     Timer {
             id: buttonTimer
-            interval: 2000
+            interval: 50
             onTriggered: {
 
                 mainList.visible = true
-                busyIndicator.running = false
+
 
             }
     }
@@ -34,11 +34,11 @@ Window {
     BusyIndicator {
 
         x:120
-        y:61
+        y:30
 
         z:10
-        height: 50
-        width: 50
+        height: 40
+        width: 40
         id: busyIndicator
         running: false
         }
@@ -182,10 +182,26 @@ Label {
            // anchors.topMargin: 15
             anchors.rightMargin : 64
             anchors.bottomMargin: 15
-
+            checked: false
             onClicked: {
-                buttonTimer.running = true
-                busyIndicator.running = true
+
+                if (checked == false)
+                {
+                    skanButton.backgroundColor = "red"
+                    skanButton.Text.text = "Стоп"
+                    checked = true
+                    buttonTimer.running = true
+                    busyIndicator.running = true
+
+                }
+                else if (checked == true)
+                {
+                    skanButton.backgroundColor = "#04BFAD"
+                    skanButton.Text.text = "Старт"
+                    checked = false
+                    buttonTimer.running = false
+                    busyIndicator.running = false
+                }
 
             }
            // x: 218
@@ -212,6 +228,74 @@ Label {
 
         }
 
+        Image {
+            id: twogbutton //динамичесоке поле
+            anchors.right: skanLabel.right;
+            anchors.top: skanLabel.top
+            anchors.left: skanLabel.left
+            anchors.bottom: skanLabel.bottom
+            anchors.leftMargin: 24
+            anchors.topMargin: 15
+            anchors.rightMargin : 296
+            anchors.bottomMargin: 15
+          //  x: 4
+           // y: 6
+            width: 40
+            height: 40
+            source: "Resources/2g.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: trigbutton //динамичесоке поле
+            anchors.right: skanLabel.right;
+            anchors.top: skanLabel.top
+            anchors.left: skanLabel.left
+            anchors.bottom: skanLabel.bottom
+            anchors.leftMargin: 72
+            anchors.topMargin: 15
+            anchors.rightMargin : 248
+            anchors.bottomMargin: 15
+          //  x: 4
+           // y: 6
+            width: 40
+            height: 40
+            source: "Resources/3g.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: fourgbutton //динамичесоке поле
+            anchors.right: skanLabel.right;
+            anchors.top: skanLabel.top
+            anchors.left: skanLabel.left
+            anchors.bottom: skanLabel.bottom
+            anchors.leftMargin: 120
+            anchors.topMargin: 15
+            anchors.rightMargin : 200
+            anchors.bottomMargin: 15
+          //  x: 4
+           // y: 6
+            width: 40
+            height: 40
+            source: "Resources/4g.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: fivegbutton //динамичесоке поле
+            anchors.right: skanLabel.right;
+            anchors.top: skanLabel.top
+            anchors.left: skanLabel.left
+            anchors.bottom: skanLabel.bottom
+            anchors.leftMargin: 168
+            anchors.topMargin: 15
+            anchors.rightMargin : 152
+            anchors.bottomMargin: 15
+          //  x: 4
+           // y: 6
+            width: 40
+            height: 40
+            source: "Resources/5g.png"
+            fillMode: Image.PreserveAspectFit
+        }
 
  }
 

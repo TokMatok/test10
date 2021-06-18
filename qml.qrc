@@ -266,5 +266,9 @@
         <file>Resources/sort_1.png</file>
         <file>Resources/off.png</file>
         <file>Resources/zamok1.png</file>
+        <file>Resources/4g.png</file>
+        <file>Resources/5g.png</file>
+        <file>Resources/3g.png</file>
+        <file>Resources/2g.png</file>
     </qresource>
 </RCC>
