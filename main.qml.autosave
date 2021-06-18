@@ -35,7 +35,7 @@ Window {
 
         x:120
         y:61
-
+ad
         z:10
         height: 50
         width: 50
