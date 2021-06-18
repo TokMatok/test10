@@ -4,6 +4,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 #include <string.h>
+#include <QTimer>
 class class1 : public QAbstractListModel
 {
     struct struct1
@@ -27,11 +28,15 @@ public:
      QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
      int rowCount(const QModelIndex &parent = QModelIndex()) const override;
      QHash<int, QByteArray> roleNames() const override;
+     Q_INVOKABLE void startTimer();
 
+     public slots:
+     void appendRow();
 
 
 private:
     void initData();
+    QTimer *timer;
 };
 enum struct1Role : int
 {

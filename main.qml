@@ -22,7 +22,7 @@ Window {
 
     Timer {
             id: buttonTimer
-            interval: 50
+            interval: 5000
             onTriggered: {
 
                 mainList.visible = true
@@ -143,7 +143,7 @@ Label {
          height: 24
          }
         onClicked: {
-            forms.visible = true
+            formsPopup.open()
         }
     }
 
@@ -185,19 +185,21 @@ Label {
             checked: false
             onClicked: {
 
+
                 if (checked == false)
                 {
                     skanButton.backgroundColor = "red"
-                    skanButton.Text.text = "Стоп"
+                    textScan.text = "Стоп"
                     checked = true
                     buttonTimer.running = true
                     busyIndicator.running = true
+                     my_model.startTimer()
 
                 }
                 else if (checked == true)
                 {
                     skanButton.backgroundColor = "#04BFAD"
-                    skanButton.Text.text = "Старт"
+                    textScan.text = "Старт"
                     checked = false
                     buttonTimer.running = false
                     busyIndicator.running = false
@@ -211,6 +213,7 @@ Label {
 
             property color backgroundColor: "#04BFAD"
             contentItem: Text {
+                id: textScan
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 text: "Скан"
@@ -223,6 +226,7 @@ Label {
             color: skanButton.backgroundColor
             width: skanButton.width
             radius : 2
+
 
          }
 
@@ -299,172 +303,188 @@ Label {
 
  }
 
-Label {
-            id: forms
-            visible: false
-            x:184
-            y:4
-            z: 1
-            width: 168; height: 208
-            property color backgroundColor: "#FFFFFFFF"
-            text: qsTr("")
+Popup
+{
 
-            background: Rectangle { //основной фон
-                id: forms_rectangle
-                color: forms.backgroundColor
-                width: forms.width
+                id: formsPopup
+                visible: false
+                x:184
+                y:4
 
-            }
-            Image {
-                id: listBSimage //динамичесоке поле
-                anchors.right: forms.right;
-                anchors.top: forms.top
-                anchors.left: forms.left
-                anchors.bottom: forms.bottom
-                anchors.leftMargin: 16
-                anchors.topMargin: 40
-                anchors.rightMargin : 292
-                anchors.bottomMargin: 128
-              //  x: 4
-               // y: 60
-                z:2
-                width: 24
-                height: 24
-                source: "Resources/zamok1.png"
-                fillMode: Image.PreserveAspectFit
-            }
-           Text
-           {
-               id: listBs
-               anchors.right: forms.right;
-               anchors.top: forms.top
-               anchors.left: forms.left
-               anchors.bottom: forms.bottom
-               anchors.leftMargin: 48
-               anchors.topMargin: 42
-               anchors.rightMargin : 16
-               anchors.bottomMargin: 148
-               //x: 64
-               //y: 84
-               width: 104
-               height: 18
-               text:"Список БС"
-               //font : firaSansRegular10
-               color: "#B0D1D8"
-           }
-           Text
-           {
-               id: diaposons
-               anchors.right: forms.right;
-               anchors.top: forms.top
-               anchors.left: forms.left
-               anchors.bottom: forms.bottom
-               anchors.leftMargin: 48
-               anchors.topMargin: 82
-               anchors.rightMargin : 16
-               anchors.bottomMargin: 108
-               //x: 64
-               //y: 84
-               width: 104
-               height: 18
-               text:"Диапазоны"
-               //font : firaSansRegular10
-               color: "#B0D1D8"
-           }
-           Text
-           {
-               id: history
-               anchors.right: forms.right;
-               anchors.top: forms.top
-               anchors.left: forms.left
-               anchors.bottom: forms.bottom
-               anchors.leftMargin: 48
-               anchors.topMargin: 122
-               anchors.rightMargin : 68
-               anchors.bottomMargin: 148
-               //x: 64
-               //y: 84
-               width: 104
-               height: 18
-               text:"История"
-               //font : firaSansRegular10
-               color: "#B0D1D8"
-           }
-           Text
-           {
-               id: settings
-               anchors.right: forms.right;
-               anchors.top: forms.top
-               anchors.left: forms.left
-               anchors.bottom: forms.bottom
-               anchors.leftMargin: 48
-               anchors.topMargin: 162
-               anchors.rightMargin : 16
-               anchors.bottomMargin: 28
-               //x: 64
-               //y: 84
-               width: 104
-               height: 18
-               text:"Настройки"
-               //font : firaSansRegular10
-               color: "#B0D1D8"
-           }
+                width: 168; height: 208
+                property color backgroundColor: "#FFFFFFFF"
 
-           Button {
-               id: closeSettings //
-               anchors.right: forms.right;
-               anchors.top: forms.top
-               anchors.left: forms.left
-               anchors.bottom: forms.bottom
-               anchors.leftMargin: 136
-               anchors.topMargin: 8
-               anchors.rightMargin : 8
-               anchors.bottomMargin: 176
-               //x: 309
-               //y: 89
-               z: 2
-               width: 24
-               height: 24
-               background: Item{
-                   anchors.fill: parent
-                   width: 24
-                   height: 24
-               }
+                background: Item { //основной фон
+                    id: popupItem1
+                    Rectangle {
+                        id: formsPopup_rectangle
+                        color: formsPopup.backgroundColor
+                        //width: formsPopup.width
+                        anchors.fill: parent
+                   }
 
-                contentItem: Image{
-                anchors.fill: parent
-                source: "qrc:/Resources/off.png"
-                width: 24
-                height: 24
+                DropShadow {
+                             anchors.fill: source
+                             horizontalOffset: 0
+                             verticalOffset: 1
+                             radius: 2.0
+                             //samples: 17
+
+                color: "#28000000"
+                             source: formsPopup_rectangle
+
+
+
                 }
-               onClicked: {
-                   forms.visible = false
-               }
-           }
+                DropShadow {
+                             anchors.fill: source
+                             horizontalOffset: 0
+                             verticalOffset: 2
+                             radius: 2.0
+                             //samples: 17
+                             color: "#08000000"
+                             source: formsPopup_rectangle
+                }
+                }
+                //availableHeight : 208
+                //availableWidth: 168
+                contentItem: Item {
+                    id: forms
+                    anchors.fill: parent
+                    Image {
+                        id: listBSimage //динамичесоке поле
+                        anchors.right: forms.right;
+                        anchors.top: forms.top
+                        anchors.left: forms.left
+                        anchors.bottom: forms.bottom
+                        anchors.leftMargin: 16
+                        anchors.topMargin: 40
+                        anchors.rightMargin : 292
+                        anchors.bottomMargin: 128
+                      //  x: 4
+                       // y: 60
+                        z:2
+                        width: 24
+                        height: 24
+                        source: "Resources/zamok1.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                   Text
+                   {
+                       id: listBs
+                       anchors.right: forms.right;
+                       anchors.top: forms.top
+                       anchors.left: forms.left
+                       anchors.bottom: forms.bottom
+                       anchors.leftMargin: 48
+                       anchors.topMargin: 42
+                       anchors.rightMargin : 16
+                       anchors.bottomMargin: 148
+                       //x: 64
+                       //y: 84
+                       width: 104
+                       height: 18
+                       text:"Список БС"
+                       //font : firaSansRegular10
+                       color: "#B0D1D8"
+                   }
+                   Text
+                   {
+                       id: diaposons
+                       anchors.right: forms.right;
+                       anchors.top: forms.top
+                       anchors.left: forms.left
+                       anchors.bottom: forms.bottom
+                       anchors.leftMargin: 48
+                       anchors.topMargin: 82
+                       anchors.rightMargin : 16
+                       anchors.bottomMargin: 108
+                       //x: 64
+                       //y: 84
+                       width: 104
+                       height: 18
+                       text:"Диапазоны"
+                       //font : firaSansRegular10
+                       color: "#B0D1D8"
+                   }
+                   Text
+                   {
+                       id: history
+                       anchors.right: forms.right;
+                       anchors.top: forms.top
+                       anchors.left: forms.left
+                       anchors.bottom: forms.bottom
+                       anchors.leftMargin: 48
+                       anchors.topMargin: 122
+                       anchors.rightMargin : 68
+                       anchors.bottomMargin: 148
+                       //x: 64
+                       //y: 84
+                       width: 104
+                       height: 18
+                       text:"История"
+                       //font : firaSansRegular10
+                       color: "#B0D1D8"
+                   }
+                   Text
+                   {
+                       id: settings
+                       anchors.right: forms.right;
+                       anchors.top: forms.top
+                       anchors.left: forms.left
+                       anchors.bottom: forms.bottom
+                       anchors.leftMargin: 48
+                       anchors.topMargin: 162
+                       anchors.rightMargin : 16
+                       anchors.bottomMargin: 28
+                       //x: 64
+                       //y: 84
+                       width: 104
+                       height: 18
+                       text:"Настройки"
+                       //font : firaSansRegular10
+                       color: "#B0D1D8"
+                   }
 
-//           DropShadow {
-//                        anchors.fill: forms
-//                        horizontalOffset: 0
-//                        verticalOffset: 1
-//                        radius: 2.0
-//                        //samples: 17
-//
-           color: "#28000000"
-//                        source: forms
+                   Button {
+                       id: closeSettings //
+                       anchors.right: forms.right;
+                       anchors.top: forms.top
+                       anchors.left: forms.left
+                       anchors.bottom: forms.bottom
+                       anchors.leftMargin: 136
+                       anchors.topMargin: 8
+                       anchors.rightMargin : 8
+                       anchors.bottomMargin: 176
+                       //x: 309
+                       //y: 89
+                       z: 2
+                       width: 24
+                       height: 24
+                       background: Item{
+                           anchors.fill: parent
+                           width: 24
+                           height: 24
+                       }
+
+                        contentItem: Image{
+                        anchors.fill: parent
+                        source: "qrc:/Resources/off.png"
+                        width: 24
+                        height: 24
+                        }
+                       onClicked: {
+                           forms.visible = false
+                       }
+                   }
 
 
 
-//           }
-//           DropShadow {
-//                        anchors.fill: forms
-//                        horizontalOffset: 0
-//                        verticalOffset: 2
-//                        radius: 2.0
-//                        //samples: 17
-//                        color: "#08000000"
-//                        source: forms
-//           }
-        }
+                }
+
+
+   closePolicy: Popup.CloseOnPressOutside
+}
 
 
 
@@ -473,6 +493,7 @@ Label {
      id: mainList
      visible: false
     model: my_model
+
         clip: true
       y:134
       x: 16
