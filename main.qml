@@ -5,7 +5,7 @@ import QtQuick.Window 2.15
 import QtGraphicalEffects 1.15
 
 Window {
-    id: window
+    id: windoц
     visible: true
     width: 360
     height: 640
